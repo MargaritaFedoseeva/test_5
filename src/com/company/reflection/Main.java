@@ -1,4 +1,4 @@
-package com.company;
+package com.company.reflection;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
@@ -10,7 +10,7 @@ public class Main {
         Class<?> concreteClass = ConcreteClass.class;
         concreteClass=new ConcreteClass(5).getClass();
         try {
-            concreteClass=Class.forName("com.company.ConcreteClass");
+            concreteClass=Class.forName("com.company.reflection.ConcreteClass");
         }catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -21,20 +21,20 @@ public class Main {
         Class<?> cDouble=Double.TYPE;
         System.out.println(cDouble.getCanonicalName());
 
-//        Class<?> cDoubleArray=new ConcreteClass(5).getClass();
-//        try {
-//            cDoubleArray=Class.forName("[D");
-//        }catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println(cDoubleArray.getCanonicalName());
+        Class<?> cDoubleArray=new ConcreteClass(5).getClass();
+        try {
+            cDoubleArray=Class.forName("[D");
+        }catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(cDoubleArray.getCanonicalName());
 
         Class<?> twoDStringArray=String[][].class;
         System.out.println(twoDStringArray.getCanonicalName());
 
         try {
-            Class<?> superClass=Class.forName("com.company.ConcreteClass").getSuperclass();
+            Class<?> superClass=Class.forName("com.company.reflection.ConcreteClass").getSuperclass();
 
             System.out.println(Object.class.getSuperclass());
             System.out.println(String[][].class.getSuperclass());
@@ -46,16 +46,16 @@ public class Main {
         System.out.println(Arrays.toString(classes));
 
         try {
-            Class<?>[] explicitClasses=Class.forName("com.company.ConcreteClass").getDeclaredClasses();
+            Class<?>[] explicitClasses=Class.forName("com.company.reflection.ConcreteClass").getDeclaredClasses();
             System.out.println(Arrays.toString(explicitClasses));
 
             Class<?> innerClass=Class.forName("com.company.ConcreteClass$ConcreteClassDefaultClass");
             System.out.println(innerClass.getDeclaringClass().getCanonicalName());
             System.out.println(innerClass.getEnclosingClass().getCanonicalName());
 
-            System.out.println(Class.forName("com.company.BaseInterfase").getPackage().getName());
+            System.out.println(Class.forName("com.company.reflection.BaseInterfase").getPackage().getName());
 
-            System.out.println(Modifier.toString(Class.forName("com.company.BaseInterfase").getModifiers()));
+            System.out.println(Modifier.toString(Class.forName("com.company.reflection.BaseInterfase").getModifiers()));
             System.out.println(Modifier.toString(concreteClass.getModifiers()));
 
             TypeVariable<?>[] typeParameters=Class.forName("java.util.HashMap").getTypeParameters();
@@ -68,24 +68,24 @@ public class Main {
 
             System.out.println(Arrays.toString(Class.forName("java.util.HashMap").getInterfaces()));
 
-            Method[] publicMethods = Class.forName("com.company.ConcreteClass").getMethods();
+            Method[] publicMethods = Class.forName("com.company.reflection.ConcreteClass").getMethods();
             System.out.println(Arrays.toString(publicMethods));
 
-            Constructor<?>[] publicConstructors = Class.forName("com.company.ConcreteClass").getConstructors();
+            Constructor<?>[] publicConstructors = Class.forName("com.company.reflection.ConcreteClass").getConstructors();
             System.out.println(Arrays.toString(publicConstructors));
 
-            Field[] publicFields = Class.forName("com.company.ConcreteClass").getFields();
+            Field[] publicFields = Class.forName("com.company.reflection.ConcreteClass").getFields();
             System.out.println(Arrays.toString(publicFields));
 
-            Field field = Class.forName("com.company.ConcreteClass").getField("interfaceInt");
+            Field field = Class.forName("com.company.reflection.ConcreteClass").getField("interfaceInt");
             Class<?> fieldClass = field.getDeclaringClass();
             System.out.println(fieldClass.getCanonicalName());
 
-            Field field1 = Class.forName("com.company.ConcreteClass").getField("publicInt");
+            Field field1 = Class.forName("com.company.reflection.ConcreteClass").getField("publicInt");
             Class<?> fieldType = field1.getType();
             System.out.println(fieldType.getCanonicalName());
 
-            Field field3 = Class.forName("com.company.ConcreteClass").getField("publicInt");
+            Field field3 = Class.forName("com.company.reflection.ConcreteClass").getField("publicInt");
             ConcreteClass obj = new ConcreteClass(5);
             System.out.println(field3.get(obj));
             field3.setInt(obj, 10);
@@ -94,7 +94,7 @@ public class Main {
 
 
 
-            Constructor<?> constructor = Class.forName("com.company.ConcreteClass").getConstructor(int.class);
+            Constructor<?> constructor = Class.forName("com.company.reflection.ConcreteClass").getConstructor(int.class);
             System.out.println(Arrays.toString(constructor.getParameterTypes()));
             Object myObj = constructor.newInstance(10);
             Method myObjMethod = myObj.getClass().getMethod("method1", null);

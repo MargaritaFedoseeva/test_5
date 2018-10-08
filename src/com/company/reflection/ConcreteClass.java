@@ -1,4 +1,4 @@
-package com.company;
+package com.company.reflection;
 
 public class ConcreteClass extends BaseClass implements BaseInterfase {
     public int publicInt;

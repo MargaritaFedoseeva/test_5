@@ -1,4 +1,4 @@
-package com.company;
+package com.company.reflection;
 
 public class BaseClass {
     public int baseInt;

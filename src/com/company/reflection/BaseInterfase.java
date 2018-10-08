@@ -1,4 +1,4 @@
-package com.company;
+package com.company.reflection;
 
 public interface BaseInterfase {
     public int interfaceInt=0;
