@@ -49,7 +49,7 @@ public class Main {
             Class<?>[] explicitClasses=Class.forName("com.company.reflection.ConcreteClass").getDeclaredClasses();
             System.out.println(Arrays.toString(explicitClasses));
 
-            Class<?> innerClass=Class.forName("com.company.ConcreteClass$ConcreteClassDefaultClass");
+            Class<?> innerClass=Class.forName("com.company.reflection.ConcreteClass$ConcreteClassDefaultClass");
             System.out.println(innerClass.getDeclaringClass().getCanonicalName());
             System.out.println(innerClass.getEnclosingClass().getCanonicalName());
 

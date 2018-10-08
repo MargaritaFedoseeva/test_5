@@ -6,4 +6,5 @@ import java.lang.annotation.*;
 @Target(value = ElementType.TYPE)//для описания типов
 public @interface ControlledObject {
     String name();
+    int def() default 22;
 }
